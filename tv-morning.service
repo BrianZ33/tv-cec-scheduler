@@ -1,0 +1,9 @@
+[Unit]
+Description=Power on TV and switch to Pi input via CEC
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/tv-cec-scheduler/tv_cec.py on
+ExecStartPost=/bin/sleep 3
+ExecStartPost=/home/pi/tv-cec-scheduler/tv_cec.py active-source
+User=pi

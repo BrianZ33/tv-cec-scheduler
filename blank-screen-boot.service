@@ -1,0 +1,12 @@
+[Unit]
+Description=Blank the framebuffer at boot
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/dd if=/dev/zero of=/dev/fb0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

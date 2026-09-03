@@ -1,0 +1,19 @@
+[Unit]
+Description=TV CEC schedule web app
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/tv-cec-scheduler
+ExecStart=/home/pi/tv-cec-scheduler/venv/bin/python3 /home/pi/tv-cec-scheduler/app.py
+Restart=on-failure
+RestartSec=5
+# Runs as root: needed both to bind port 80 and for fbi to reliably
+# access the framebuffer/virtual terminal to display the warning image.
+# This is a trade-off for simplicity on a single-purpose home device -
+# see the README if you'd rather lock this down further.
+User=root
+
+[Install]
+WantedBy=multi-user.target

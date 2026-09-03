@@ -1,0 +1,18 @@
+[Unit]
+Description=Custom boot splash image
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+Type=simple
+# No -t/--once flag: fbi just displays this image and sits there
+# indefinitely, acting as an idle "default" screen. It gets killed
+# automatically (see _kill_existing_fbi in display_image.py) the
+# moment a scheduled warning cycle needs the screen instead.
+ExecStart=/usr/bin/fbi -d /dev/fb0 -T 1 --noverbose -a /home/tv/tv-cec-scheduler/static/splash.png
+StandardOutput=null
+StandardError=null
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

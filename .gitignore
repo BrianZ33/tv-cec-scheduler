@@ -1,0 +1,22 @@
+# Runtime-generated data (created by the app, not part of source)
+schedule.json
+holidays.json
+settings.json
+tv_cec_web.log
+*.log
+
+# Uploaded warning image (personal data, not source)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Build artifacts
+*.deb
+
+# OS/editor cruft
+.DS_Store
+*.swp

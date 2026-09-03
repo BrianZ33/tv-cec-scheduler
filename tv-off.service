@@ -1,0 +1,7 @@
+[Unit]
+Description=Turn TV off via CEC
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/tv-cec-scheduler/tv_cec.py off
+User=pi
